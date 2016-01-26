@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
 
   def index
-    @products = Product.all
+    @products = Product.available_products
   end
 
   def buy_product
@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
     @product = @variant.product
     @buyer = current_buyer
     @variant.update_attributes(quantity: (@variant.quantity-1)) if @buyer && @buyer.credit >= @variant.price
+    @buyer.update_attributes(credit: (@buyer.credit-@variant.price))
     Coupon.create(variant_id: @variant.id, code: Coupon.generate_new_code)
     redirect_to action: 'index'
   end

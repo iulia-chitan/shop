@@ -11,18 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160126091324) do
+ActiveRecord::Schema.define(:version => 20160126112251) do
 
   create_table "buyers", :force => true do |t|
-    t.string   "name",               :default => "",  :null => false
-    t.string   "email",              :default => "",  :null => false
-    t.string   "encrypted_password", :default => "",  :null => false
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
-    t.integer  "credit",             :default => 100, :null => false
+    t.string   "name",                                              :default => "",  :null => false
+    t.string   "email",                                             :default => "",  :null => false
+    t.string   "encrypted_password",                                :default => "",  :null => false
+    t.datetime "created_at",                                                         :null => false
+    t.datetime "updated_at",                                                         :null => false
+    t.decimal  "credit",             :precision => 10, :scale => 0, :default => 100, :null => false
   end
 
-  add_index "buyers", ["email"], :name => "index_buyers_on_email", :unique => true
+  add_index "buyers", ["email"], :name => "index_buyers_on_email"
 
   create_table "coupons", :force => true do |t|
     t.integer  "variant_id"

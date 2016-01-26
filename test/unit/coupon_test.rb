@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class CouponTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "invalid with no code" do
+    coupon = Coupon.new(variant_id: 1)
+    assert_equal false, coupon.valid?
+  end
+
+
 end
