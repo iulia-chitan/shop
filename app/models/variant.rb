@@ -3,4 +3,6 @@ class Variant < ActiveRecord::Base
 
   belongs_to :product
   has_many :coupons, dependent: :destroy
+
+  validates_presence_of :price, :quantity, :is_active
 end

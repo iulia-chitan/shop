@@ -6,4 +6,7 @@ class Buyer < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :name
   # attr_accessible :title, :body
+
+  validates_presence_of :email, :name, :password
+  validates_confirmation_of :password
 end
