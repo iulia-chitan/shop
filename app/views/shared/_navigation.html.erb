@@ -1,0 +1,24 @@
+<% if buyer_signed_in? %>
+
+    <li>
+
+      <%= link_to('Logout', destroy_buyer_session_path, :method=>'delete') %>
+
+    </li>
+
+<% else %>
+
+    <li>
+
+      <%= link_to('Login', new_buyer_session_path)  %>
+
+    </li>
+
+    <li>
+
+      <%= link_to('Sign up', new_buyer_path)  %>
+
+    </li>
+
+<% end %>
+

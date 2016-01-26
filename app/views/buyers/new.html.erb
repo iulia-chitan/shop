@@ -1,0 +1,24 @@
+<h2>Sign up</h2>
+<%= form_for @buyer do |f| %>
+    <ol>
+      <li>
+        <label for=""><span>Name</span></label>
+        <%= f.text_field :name, {:required => "required", :type => "text", :placeholder =>"First_Name Last_Name"} %>
+      </li>
+      <li>
+        <label for=""><span>Email</span></label>
+        <%= f.text_field :email, {:required => "required", :type => "email", :placeholder =>"mysupermail@mail.com"} %>
+      </li>
+      <li>
+        <label for=""><span>Password</span></label>
+        <%= f.text_field :password, {:required => "required", :type => "password", :placeholder => "eg. X8df!90EO"} %>
+      </li>
+
+      <li>
+        <label for=""><span>Confirm</span></label>
+        <%= f.text_field :password_confirmation, {:required => "required", :type => "password", :placeholder=>"eg. X8df!90EO"} %>
+      </li>
+    </ol>
+
+    <button type="submit">Sign Up</button>
+<%end%>

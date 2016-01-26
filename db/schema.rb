@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160126083749) do
+ActiveRecord::Schema.define(:version => 20160126091324) do
 
   create_table "buyers", :force => true do |t|
     t.string   "name",               :default => "",  :null => false
@@ -23,5 +23,28 @@ ActiveRecord::Schema.define(:version => 20160126083749) do
   end
 
   add_index "buyers", ["email"], :name => "index_buyers_on_email", :unique => true
+
+  create_table "coupons", :force => true do |t|
+    t.integer  "variant_id"
+    t.string   "code",       :default => "", :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "title",       :default => "", :null => false
+    t.text     "description",                 :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
+  create_table "variants", :force => true do |t|
+    t.integer  "product_id"
+    t.boolean  "is_active",                                 :default => true, :null => false
+    t.decimal  "price",      :precision => 10, :scale => 0, :default => 0,    :null => false
+    t.integer  "quantity",                                  :default => 0,    :null => false
+    t.datetime "created_at",                                                  :null => false
+    t.datetime "updated_at",                                                  :null => false
+  end
 
 end
