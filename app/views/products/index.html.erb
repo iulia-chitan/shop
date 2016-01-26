@@ -1,0 +1,25 @@
+<ol>
+  <%unless @products.empty?%>
+  <table>
+    <tbody>
+    <tr>
+      <th>Product Name</th>
+      <th>Product price</th>
+      <th></th>
+    </tr>
+    <%@products.each do |p|%>
+        <tr>
+            <td><%= p.title %></td>
+            <td><%= p.best_price_variant.price %></td>
+            <td><%= link_to "Buy", {controller: "products", action: "buy_product", variant_id: p.best_price_variant.id}%></td>
+        </tr>
+
+
+    <%end%>
+
+    </tbody>
+  </table>
+
+  <%end%>
+
+</ol>
