@@ -4,7 +4,7 @@ class Buyer < ActiveRecord::Base
   devise :database_authenticatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :name
+  attr_accessible :email, :password, :password_confirmation, :name, :credit
   # attr_accessible :title, :body
 
   validates_presence_of :email, :name, :password
