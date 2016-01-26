@@ -6,6 +6,6 @@ class Coupon < ActiveRecord::Base
   validates_presence_of :code
 
   def self.generate_new_code
-    return Array.new(n){[*"A".."Z", *"0".."9"].sample}.join
+    return Array.new(12){[*"A".."Z", *"0".."9"].sample}.join
   end
 end

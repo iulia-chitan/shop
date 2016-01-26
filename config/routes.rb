@@ -4,7 +4,12 @@ Shop::Application.routes.draw do
   get "home/index"
 
   resources :buyers
-  resources :products
+  resources :products do
+    collection do
+      put :buy_product
+    end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

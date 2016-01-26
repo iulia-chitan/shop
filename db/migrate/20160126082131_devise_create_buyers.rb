@@ -8,7 +8,7 @@ class DeviseCreateBuyers < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :buyers, :email,                unique: true
+    add_index :buyers, :email
 
   end
 end
